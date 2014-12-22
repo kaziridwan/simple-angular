@@ -1,4 +1,4 @@
-This is just a simple angular introductory project
+This is just a simple angular introductory project.
 See it live in action here
 http://kaziridwan.github.io/simple-angular
 
