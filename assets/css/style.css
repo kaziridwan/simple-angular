@@ -1,0 +1,22 @@
+body { padding-top: 70px; }
+
+/*bootstrap customizations*/
+.bg-dark {
+	background-color: #E2E2E2;
+}
+.list-group-item{
+	overflow: overlay;
+}
+.s{
+	text-decoration: line-through;
+}
+
+.pointer{
+	cursor: pointer;
+}
+
+.smooth{
+	transition: 1s all ease !important;
+}
+
+/*/bootstrap customizations*/
