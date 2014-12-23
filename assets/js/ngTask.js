@@ -1,8 +1,8 @@
 angular.module('ngTasker',[])
 	.controller('TaskController', ['$scope',function($scope){
 		$scope.tasks = [
-			{description:'Work in Jono\'s Project', done:false, edit:false},
-			{description:'Finish Alegria', done:false, edit:false}
+			{description:'Task 1', done:false, edit:false},
+			{description:'Task 2', done:false, edit:false}
 			];
 		$scope.progress = 0;
 		$scope.addTask = function(){
