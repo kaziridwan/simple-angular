@@ -14,6 +14,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
 	<script src="assets/js/ngTask.js"></script>
+	<script src="assets/js/FileSaver.js"></script>
+	
 	
 </head>
 <body ng-controller="TaskController">
@@ -105,7 +107,7 @@
 							<input type="checkbox" class="hidden" ng-model="task.done">
 							
 							<i class="glyphicon glyphicon-trash pull-right pointer" ng-class="{'text-danger' : task.done}" ng-click="deleteTask($index)" ng-click="doTask($index)"></i>
-							<i class="glyphicon glyphicon-asterisk pull-right"></i>
+							<i class="glyphicon glyphicon-asterisk white pull-right"></i>
 							<i class="glyphicon pull-right pointer" ng-class="{'glyphicon-floppy-disk' : task.edit ,'glyphicon-edit' : task.edit == false}" ng-click="toggleEdit($index)"></i>
 							
 						</li>
@@ -115,13 +117,42 @@
 					<div class="form-group">
 					  <label class="control-label">Actions</label>
 					  <div class="input-group">
-					    <span class="input-group-addon">Task Name</span>
-					    <input type="text" class="form-control text-center" ng-model="newTask" placeholder="Enter a new task">
+					    <span class="input-group-addon">Add new task</span>
+					    <input type="text" class="form-control text-center" ng-model="newTask" placeholder="Type in task description">
 					    <span class="input-group-btn">
-					      <button class="btn btn-default" ng-click="addTask()" type="button">Add</button>
+					      <button class="btn btn-default form-control" ng-click="addTask()" type="button">Add</button>
 					    </span>
 					  </div>
+					  <hr>
+					  <div class="input-group">
+					    <span class="input-group-addon">Download the tasklist</span>
+					    <input type="text" class="form-control text-center"  placeholder="Give this tasklist a name">
+					    <span class="input-group-btn">
+					      <button type="button" class="btn btn-default form-control" ng-click="saveAsFile()" >
+					      	<i class="glyphicon glyphicon-save"></i>download
+					      </button>
+					  	</span>
+					  	&nbsp;
+					    <span class="input-group-btn">
+					      <button type="button" class="btn btn-default form-control" ng-click="fileImportClick()" >
+					      		<i class="glyphicon glyphicon-open pointer" ></i>import
+					      	</button>
+					    </span>
+					  </div>
+					  <div class="input-group hidden">
+					    <span class="input-group-addon">Import a tasklist</span>
+					    <input type="file" on-read-file="showContent($fileContent)" class="form-control text-center hidden"  placeholder="Give this tasklist a name">
+					    <!-- <span class="input-group-btn">
+					      	<button ng-click="fileImportClick()" type="button" class="btn btn-default">
+					      		<i class="glyphicon glyphicon-open pointer block" ></i>
+					      	</button>
+					    </span> -->
+					  </div>
 					</div><!-- /inputs -->
+					<!-- <div ng-if="content">
+				        <h2>File content is:</h2>
+				        <pre>{{ -content }}</pre>
+				    </div> -->
 				</div>
 			</div> <!-- /list -->
 		</div>
